@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vfsasolutionstrial-dev-155952-authRole",
+      "UnauthRoleArn": "arn:aws:iam::461329598263:role/amplify-vfsasolutionstrial-dev-155952-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::461329598263:role/amplify-vfsasolutionstrial-dev-155952-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-vfsasolutionstrial-dev-155952-deployment",
+      "UnauthRoleName": "amplify-vfsasolutionstrial-dev-155952-unauthRole",
+      "StackName": "amplify-vfsasolutionstrial-dev-155952",
+      "StackId": "arn:aws:cloudformation:us-east-2:461329598263:stack/amplify-vfsasolutionstrial-dev-155952/16a845a0-cd4b-11eb-9f40-06a3b6db7c1a",
+      "AmplifyAppId": "d2it7v98v2fmul"
+    },
+    "categories": {
+      "auth": {
+        "vfsasolutionstrial9f75eff9": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vfsasolutionstrial-dev-155952-authRole",
+      "UnauthRoleArn": "arn:aws:iam::461329598263:role/amplify-vfsasolutionstrial-dev-155952-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::461329598263:role/amplify-vfsasolutionstrial-dev-155952-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-vfsasolutionstrial-dev-155952-deployment",
+      "UnauthRoleName": "amplify-vfsasolutionstrial-dev-155952-unauthRole",
+      "StackName": "amplify-vfsasolutionstrial-dev-155952",
+      "StackId": "arn:aws:cloudformation:us-east-2:461329598263:stack/amplify-vfsasolutionstrial-dev-155952/16a845a0-cd4b-11eb-9f40-06a3b6db7c1a",
+      "AmplifyAppId": "d2it7v98v2fmul",
+      "AuthTriggerTemplateURL": ""
+    }
+  },
+  "auth": {
+    "vfsasolutionstrial9f75eff9": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vfsasolutionstrial-dev-155952-deployment/amplify-cfn-templates/auth/vfsasolutionstrial9f75eff9-cloudformation-template.yml",
+        "logicalId": "authvfsasolutionstrial9f75eff9"
+      },
+      "lastPushTimeStamp": "2021-06-16T18:04:16.242Z",
+      "output": {
+        "UserPoolId": "us-east-2_SYA1e1PcU",
+        "AppClientIDWeb": "2mqgf0ui1im36690qga26b4hlu",
+        "AppClientID": "2dpm7s87ro07go332tv9su1g6q",
+        "IdentityPoolId": "us-east-2:8bd732c4-283b-4fa7-ad52-dd9ad6ad79cd",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:461329598263:userpool/us-east-2_SYA1e1PcU",
+        "IdentityPoolName": "vfsasolutionstrial9f75eff9_identitypool_9f75eff9__dev",
+        "UserPoolName": "vfsasolutionstrial9f75eff9_userpool_9f75eff9"
+      },
+      "lastPushDirHash": "tpGE8kzKm+x5JlfMa5hIE7l/Ugc="
+    }
+  },
+  "api": {
+    "vfsasolutionstrial": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "description": "public"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authvfsasolutionstrial9f75eff9"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "4b45xse6urckbi5vsv4a5unlrq",
+        "GraphQLAPIEndpointOutput": "https://hde4nydzwbas5dslcgnsjkmfii.appsync-api.us-east-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-4hwcpyg6wffcpki3pfprm5adga"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vfsasolutionstrial-dev-155952-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apivfsasolutionstrial"
+      },
+      "lastPushTimeStamp": "2021-06-16T18:04:16.246Z",
+      "lastPushDirHash": "KpGJhijf9AsGmGLwmup7JvPg1pg="
+    }
+  }
+}

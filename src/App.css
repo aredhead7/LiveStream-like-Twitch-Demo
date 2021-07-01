@@ -1,0 +1,11 @@
+* {
+  background-color: white;
+}
+
+/* .errorMessage-customizable {
+  color: red;
+} */
+
+.input-Field-customizable:focus {
+  border-color: rgb(10, 233, 10);
+}

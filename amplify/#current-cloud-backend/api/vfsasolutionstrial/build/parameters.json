@@ -1,0 +1,14 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "vfsasolutionstrial",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authvfsasolutionstrial9f75eff9",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "S3DeploymentBucket": "amplify-vfsasolutionstrial-dev-155952-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/09d48fbd7f4946632382787bdb64f46f817baea3"
+}

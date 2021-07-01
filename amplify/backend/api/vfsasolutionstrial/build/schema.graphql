@@ -1,0 +1,152 @@
+type Comment @aws_cognito_user_pools @aws_api_key {
+  id: ID!
+  message: String!
+  owner: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelCommentConnection @aws_api_key @aws_cognito_user_pools {
+  items: [Comment]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelCommentFilterInput {
+  id: ModelIDInput
+  message: ModelStringInput
+  owner: ModelStringInput
+  and: [ModelCommentFilterInput]
+  or: [ModelCommentFilterInput]
+  not: ModelCommentFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getComment(id: ID!): Comment @aws_api_key @aws_cognito_user_pools
+  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection @aws_api_key @aws_cognito_user_pools
+}
+
+input CreateCommentInput {
+  id: ID
+  message: String!
+  owner: String
+}
+
+input UpdateCommentInput {
+  id: ID!
+  message: String
+  owner: String
+}
+
+input DeleteCommentInput {
+  id: ID!
+}
+
+type Mutation {
+  createComment(input: CreateCommentInput!, condition: ModelCommentConditionInput): Comment @aws_cognito_user_pools
+  updateComment(input: UpdateCommentInput!, condition: ModelCommentConditionInput): Comment @aws_cognito_user_pools
+  deleteComment(input: DeleteCommentInput!, condition: ModelCommentConditionInput): Comment @aws_cognito_user_pools
+}
+
+input ModelCommentConditionInput {
+  message: ModelStringInput
+  and: [ModelCommentConditionInput]
+  or: [ModelCommentConditionInput]
+  not: ModelCommentConditionInput
+}
+
+type Subscription {
+  onCreateComment: Comment @aws_subscribe(mutations: ["createComment"]) @aws_api_key @aws_cognito_user_pools
+  onUpdateComment: Comment @aws_subscribe(mutations: ["updateComment"]) @aws_api_key @aws_cognito_user_pools
+  onDeleteComment: Comment @aws_subscribe(mutations: ["deleteComment"]) @aws_api_key @aws_cognito_user_pools
+}
